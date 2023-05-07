@@ -39,5 +39,5 @@ jobs:
       run: ssh-keyscan -H 152.70.184.41 >> ~/.ssh/known_hosts
     
     - name: Deploy with rsync
-      run: rsync -avz ./built ubuntu@152.70.184.41:/home/ubuntu/diplomawork_backend/src/built
+      run: rsync -avz ./built  ubuntu@152.70.184.41:/home/ubuntu/diplomawork_backend/src/built
   
