@@ -10,7 +10,6 @@ on:
     branches: [ "main" ]
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
@@ -37,7 +36,7 @@ jobs:
         known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
     
     - name: Adding Known Hosts
-      run: "ssh-keyscan -H ${{ secrets.SSH_HOST }}{% endraw %} >> ~/.ssh/known_hosts"
+      run: ssh-keyscan -H ${{ secrets.SSH_HOST }}{% endraw %} >> ~/.ssh/known_hosts
     
     - name: Deploy with rsync
       run: rsync -avz ./built ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/ubuntu/diplomawork_backend/src/built
